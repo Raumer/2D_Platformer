@@ -14,19 +14,17 @@ public class PlayerMovement : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _rigidBody = GetComponent<Rigidbody2D>();
-
     }
 
     private void Update()
     {
-
         Spin();
 
         _rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal") * _speedMove, _rigidBody.velocity.y);        
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _rigidBody.AddForce(Vector2.up * _speedJump); //, ForceMode2D.Impulse);
+            _rigidBody.AddForce(Vector2.up * _speedJump);
         }
 
         if (Input.GetAxis("Horizontal") == 0)
