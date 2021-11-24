@@ -460,8 +460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9fbf88aabc728448a0d021fa1ce4e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _template: {fileID: 7313711010851382095, guid: 2bb21d0e3ebb77547bdf75bb14c27d31, type: 3}
   _spawnPoints: {fileID: 212640943}
+  _coin: {fileID: -5254800591216594596, guid: 2bb21d0e3ebb77547bdf75bb14c27d31, type: 3}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

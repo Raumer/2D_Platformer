@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Transform target;
@@ -12,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rigidBody;
 
     private void Start()
-    {
+    {        
         _animator = GetComponent<Animator>();
         _rigidBody = GetComponent<Rigidbody2D>();
     }
@@ -30,12 +32,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") == 0)
         {
-           // _animator.SetInteger("Number", 0 );
             _animator.SetInteger(AnimatorPlayerController.States.State, 0);
         }
         else
         {
-           // _animator.SetInteger("Number", 1);
             _animator.SetInteger(AnimatorPlayerController.States.State, 1);
         }
     }
@@ -54,18 +54,11 @@ public class PlayerMovement : MonoBehaviour
     }
 }
 
-
 public static class AnimatorPlayerController
 {
     public static class States
     {
         public const string State = nameof(State);
     }
-
-    //public static class States
-    //{
-    //    public const string Idle = "Idle";
-    //    public const string Run = "Run";
-    //}
 }
 
