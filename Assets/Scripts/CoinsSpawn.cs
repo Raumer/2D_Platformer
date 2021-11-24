@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CoinsSpawn : MonoBehaviour
 {
-
-    [SerializeField] private GameObject _template;
     [SerializeField] private Transform _spawnPoints;
+    [SerializeField] private Coin _coin;
+
     private Transform[] _points;
 
-    void Start()
+    private void Start()
     {
         _points = new Transform[_spawnPoints.childCount];
 
@@ -25,7 +25,7 @@ public class CoinsSpawn : MonoBehaviour
     {
         foreach (var point in _points)
         {
-            GameObject Coin = Instantiate(_template, point.position, Quaternion.identity);
+            Instantiate(_coin, point.position, Quaternion.identity);
 
             yield return new WaitForSeconds(1);
         }

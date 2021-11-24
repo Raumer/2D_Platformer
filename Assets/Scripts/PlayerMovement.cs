@@ -7,10 +7,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private float _speedMove;
     [SerializeField] private float _speedJump;
+
     private Animator _animator;
     private Rigidbody2D _rigidBody;
 
-    void Start()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
         _rigidBody = GetComponent<Rigidbody2D>();
@@ -29,11 +30,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") == 0)
         {
-            _animator.SetInteger("Number", 0 );
+           // _animator.SetInteger("Number", 0 );
+            _animator.SetInteger(AnimatorPlayerController.States.State, 0);
         }
         else
         {
-            _animator.SetInteger("Number", 1);
+           // _animator.SetInteger("Number", 1);
+            _animator.SetInteger(AnimatorPlayerController.States.State, 1);
         }
     }
 
@@ -49,5 +52,20 @@ public class PlayerMovement : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
     }
+}
+
+
+public static class AnimatorPlayerController
+{
+    public static class States
+    {
+        public const string State = nameof(State);
+    }
+
+    //public static class States
+    //{
+    //    public const string Idle = "Idle";
+    //    public const string Run = "Run";
+    //}
 }
 
